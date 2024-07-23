@@ -1,3 +1,4 @@
+#stage-1 Base image with dependency
 FROM node:22.5.1 AS base
 WORKDIR /app
 COPY package.json /app
@@ -9,7 +10,7 @@ RUN apt-get update &&\
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 
-
+#stage-2 Alpine  image copying necessary code
 FROM node:22-alpine
 
 WORKDIR /app
